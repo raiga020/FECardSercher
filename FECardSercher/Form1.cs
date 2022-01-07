@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FECardSercher
 {
-    public partial class Form1 : Form
+    public partial class FECipherCardSearcher : Form
     {
-        public Form1()
+        public FECipherCardSearcher()
         {
             InitializeComponent();
         }

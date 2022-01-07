@@ -1,6 +1,6 @@
 ﻿namespace FECardSercher
 {
-    partial class Form1
+    partial class FECipherCardSearcher
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -57,7 +57,7 @@
             this.SerachResultPanel.Size = new System.Drawing.Size(325, 563);
             this.SerachResultPanel.TabIndex = 2;
             // 
-            // Form1
+            // FECipherCardSearcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -65,8 +65,8 @@
             this.Controls.Add(this.SerachResultPanel);
             this.Controls.Add(this.CardTextPanel);
             this.Controls.Add(this.CardImagePanel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FECipherCardSearcher";
+            this.Text = "FECipherCardSearcher";
             this.ResumeLayout(false);
 
         }
