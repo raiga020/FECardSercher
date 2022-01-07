@@ -160,22 +160,16 @@ namespace FECardSercher
             // 単射程
             if(split.Length == 0)
             {
-                int parseRange = 0;
-                int.TryParse(split[0], out parseRange);
-                minRange = parseRange;
-                maxRange = parseRange;
+                int.TryParse(split[0], out minRange);
+                maxRange = minRange;
                 return;
             }
             // 複数射程
             // min-max の形式
             else
             {
-                int min = 0;
-                int max = 0;
-                int.TryParse(split[0], out min);
-                int.TryParse(split[1], out max);
-                minRange = min;
-                maxRange = max;
+                int.TryParse(split[0], out minRange);
+                int.TryParse(split[1], out maxRange);
             }
         }
     }

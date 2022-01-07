@@ -6,15 +6,30 @@ using System.Threading.Tasks;
 
 namespace FECardSercher
 {
+    /// <summary>
+    /// カードデータ本体
+    /// Jsonを解釈して扱いやすい形式にしたもの
+    /// </summary>
     public class CardData
     {
+        //=======================================================================================================
+        // ctor
+        //=======================================================================================================
         public CardData(CardDataJsonDefine json)
         {
-            mData = json;
-
             // パラメータ格納
             mCardName = json.CardName;
-            // TODO: 称号とユニット名識別
+            {
+                var unitNameList = CardDataManager.GetInstance();
+                foreach (var unitName in unitNameList.UnitNameList)
+                {
+                    if(mCardName.Contains(unitName))
+                    {
+                        mUnitName = unitName;
+                        mTitle = mCardName.Replace(unitName, "");
+                    }
+                }
+            }
 
             int.TryParse(json.Attack, out mAttack);
             int.TryParse(json.Support, out mSupport);
@@ -46,8 +61,30 @@ namespace FECardSercher
             mSkill = json.Skill;
         }
 
-        private CardDataJsonDefine mData = null;
+        //=======================================================================================================
+        // property
+        //=======================================================================================================
+        public string CardName { get { return mCardName; } }
+        public string Title { get { return mTitle; } }
+        public string UnitName { get { return mUnitName; } }
+        public int Cost { get { return mCost; } }
+        public int ClassChangeCost { get { return mClassChangeCost;} }
+        public bool HasClassChangeCost { get { return mHasClassChangeCost; } }
+        public int Attack { get { return mAttack; } }
+        public int Support { get { return mSupport; } }
+        public bool IsSupportX { get { return mIsSupportX; } }
+        public ESymbol Symbol { get { return mSymbol; } }
+        public EArm Arm { get { return mArm; } }
+        public List<EType> Types { get { return mTypes; } }
+        public ESex Sex { get { return mSex; } }
+        public int MinRange { get { return mMinRange; } }
+        public int MaxRange { get { return mMaxRange; } }
 
+        public string Skill { get { return mSkill; } }
+
+        //=======================================================================================================
+        // field
+        //=======================================================================================================
         private string mCardName = "";
         private string mTitle = "";
         private string mUnitName = "";

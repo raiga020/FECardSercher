@@ -15,6 +15,10 @@ namespace FECardSercher
         public FECipherCardSearcher()
         {
             InitializeComponent();
+
+            // シングルトンの生成
+            CardDataManager.Create();
         }
+
     }
 }
