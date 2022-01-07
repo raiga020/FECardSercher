@@ -86,9 +86,9 @@ namespace FECardSercher
 
         private void debugPrint()
         {
-            foreach(var card in mCardDataList)
+            foreach(var card in mJsonDataList)
             {
-                System.Console.WriteLine(String.Format("{0} {1} ({2})", card.Title, card.UnitName, card.Symbol));
+                System.Console.WriteLine(String.Format("{0} ({1})", card.CardName, card.Symbol));
             }
         }
 
