@@ -42,8 +42,21 @@ namespace FECardSercher
         {
             loadUnitName();
             loadCardData();
+        }
 
-            debugPrint();
+        //=======================================================================================================
+        // public method
+        //=======================================================================================================
+        public List<CardDataJsonDefine> Search(SearchOption option)
+        {
+            var ret = new List<CardDataJsonDefine>();
+
+            // keyword検索
+            ret.AddRange(JsonCardDataList.FindAll(one =>
+               ((option.FromAll || option.FromCardName) && one.CardName.Contains(option.KeyWord))
+            ));
+
+            return ret;
         }
 
         //=======================================================================================================

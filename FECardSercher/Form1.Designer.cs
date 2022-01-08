@@ -33,7 +33,7 @@
             this.SerachResultPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.KeywordLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.KeywordTextBox = new System.Windows.Forms.TextBox();
             this.CardNameCheckBox = new System.Windows.Forms.CheckBox();
             this.CardTitleCheckBox = new System.Windows.Forms.CheckBox();
             this.UnitNameCheckBox = new System.Windows.Forms.CheckBox();
@@ -142,7 +142,7 @@
             this.panel1.Controls.Add(this.CardTitleCheckBox);
             this.panel1.Controls.Add(this.CardNameCheckBox);
             this.panel1.Controls.Add(this.KeywordLabel);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.KeywordTextBox);
             this.panel1.Location = new System.Drawing.Point(68, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(534, 405);
@@ -159,12 +159,12 @@
             this.KeywordLabel.TabIndex = 1;
             this.KeywordLabel.Text = "キーワード";
             // 
-            // textBox1
+            // KeywordTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(104, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(359, 19);
-            this.textBox1.TabIndex = 0;
+            this.KeywordTextBox.Location = new System.Drawing.Point(104, 24);
+            this.KeywordTextBox.Name = "KeywordTextBox";
+            this.KeywordTextBox.Size = new System.Drawing.Size(359, 19);
+            this.KeywordTextBox.TabIndex = 0;
             // 
             // CardNameCheckBox
             // 
@@ -687,6 +687,7 @@
             this.SearchButton.TabIndex = 50;
             this.SearchButton.Text = "検索";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // FECipherCardSearcher
             // 
@@ -712,7 +713,7 @@
         private System.Windows.Forms.Panel SerachResultPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label KeywordLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox KeywordTextBox;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label10;

@@ -10,6 +10,18 @@ namespace FECardSercher
     public class SearchOption
     {
         /// <summary>
+        /// 全テキストから検索するか
+        /// チェックボックスがすべて未指定なら全検索扱い
+        /// </summary>
+        public bool FromAll
+        {
+            get
+            {
+                return !FromCardName && !FromTitle && !FromUnitName && !FromSkills && !FromCardNo && !FromCardName && !FromCardNo && !FromJob && !FromPhrase && !FromIllustrator;
+            }
+        }
+
+        /// <summary>
         /// キーワードと検索対象
         /// </summary>
         public string KeyWord { get; set; }

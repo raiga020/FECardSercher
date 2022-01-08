@@ -20,5 +20,20 @@ namespace FECardSercher
             CardDataManager.Create();
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            mSerachOption.KeyWord = KeywordTextBox.Text;
+            var result = CardDataManager.GetInstance().Search(mSerachOption);
+
+            if (result != null)
+            {
+                foreach(var card in result)
+                {
+                    System.Console.WriteLine(card.CardName);
+                }
+            }
+        }
+
+        private SearchOption mSerachOption = new SearchOption();
     }
 }
