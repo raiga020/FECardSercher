@@ -154,5 +154,39 @@ namespace FECardSercher
             Male,
             Female,
         }
+
+        public enum EClass
+        {
+            None,
+            Low,        // 下級
+            Middle,     // 中級
+            High,       // 上級
+            Top,        // 最上級
+            Beginner,   // 初級
+            Unique,      // 固定
+            Special,    // 特殊
+            Over,       // オーバークラス
+            Prime,      // 特級
+        }
+
+        public enum ERarity
+        {
+            ST,
+            STPlus,
+            SR,
+            SRPlus,
+            R,
+            RPlus,
+            RPlusX,
+            HN,
+            HNX,
+            HR,
+            N,
+            NPlusX,
+            PlusX,
+            PR,
+            PRr,
+            PRPlus,
+        }
     }
 }

@@ -57,7 +57,7 @@
             this.MinSupportComboBox = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
+            this.RarityComboBox = new System.Windows.Forms.ComboBox();
             this.ArmComboBox = new System.Windows.Forms.ComboBox();
             this.SexComboBox = new System.Windows.Forms.ComboBox();
             this.SymbolComboBox = new System.Windows.Forms.ComboBox();
@@ -116,7 +116,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.comboBox5);
             this.panel1.Controls.Add(this.TypeComboBox);
-            this.panel1.Controls.Add(this.comboBox13);
+            this.panel1.Controls.Add(this.RarityComboBox);
             this.panel1.Controls.Add(this.ArmComboBox);
             this.panel1.Controls.Add(this.SexComboBox);
             this.panel1.Controls.Add(this.SymbolComboBox);
@@ -488,10 +488,10 @@
             this.TypeComboBox.Size = new System.Drawing.Size(60, 20);
             this.TypeComboBox.TabIndex = 35;
             // 
-            // comboBox13
+            // RarityComboBox
             // 
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Items.AddRange(new object[] {
+            this.RarityComboBox.FormattingEnabled = true;
+            this.RarityComboBox.Items.AddRange(new object[] {
             "指定なし",
             "ST",
             "ST+",
@@ -509,10 +509,10 @@
             "PR",
             "PRr",
             "PR+"});
-            this.comboBox13.Location = new System.Drawing.Point(423, 327);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(59, 20);
-            this.comboBox13.TabIndex = 34;
+            this.RarityComboBox.Location = new System.Drawing.Point(423, 327);
+            this.RarityComboBox.Name = "RarityComboBox";
+            this.RarityComboBox.Size = new System.Drawing.Size(59, 20);
+            this.RarityComboBox.TabIndex = 34;
             // 
             // ArmComboBox
             // 
@@ -727,7 +727,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox TypeComboBox;
-        private System.Windows.Forms.ComboBox comboBox13;
+        private System.Windows.Forms.ComboBox RarityComboBox;
         private System.Windows.Forms.ComboBox ArmComboBox;
         private System.Windows.Forms.ComboBox SexComboBox;
         private System.Windows.Forms.ComboBox SymbolComboBox;
