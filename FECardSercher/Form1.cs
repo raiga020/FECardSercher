@@ -29,7 +29,7 @@ namespace FECardSercher
             {
                 foreach(var card in result)
                 {
-                    System.Console.WriteLine(card.CardName);
+                    System.Console.WriteLine(card.UnitName);
                 }
             }
         }

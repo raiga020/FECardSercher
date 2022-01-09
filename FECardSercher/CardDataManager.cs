@@ -53,7 +53,7 @@ namespace FECardSercher
 
             // keyword検索
             ret.AddRange(JsonCardDataList.FindAll(one =>
-               ((option.FromAll || option.FromCardName) && one.CardName.Contains(option.KeyWord))
+               ((option.FromAll || option.FromCardName) && one.UnitName.Contains(option.KeyWord))
             ));
 
             return ret;
@@ -101,7 +101,7 @@ namespace FECardSercher
         {
             foreach(var card in mJsonDataList)
             {
-                System.Console.WriteLine(String.Format("{0} ({1})", card.CardName, card.Symbol));
+                System.Console.WriteLine(String.Format("{0} ({1})", card.UnitName, card.Symbol));
             }
         }
 

@@ -10,17 +10,52 @@ namespace FECardSercher
     public class CardDataJsonDefine
     {
         /// <summary>
-        /// カード名
-        /// 称号＋ユニット名
+        /// 称号名
+        /// </summary>
+        [JsonProperty("_title")]
+        public string TitleName { get; set; }
+
+        /// <summary>
+        /// ユニット名
         /// </summary>
         [JsonProperty("_name")]
-        public string CardName { get; set; }
+        public string UnitName { get; set; }
 
         /// <summary>
         /// カード画像名
         /// </summary>
-        [JsonProperty("_number")]
+        [JsonProperty("_image")]
         public string ImageName { get; set; }
+
+        /// <summary>
+        /// イラストレータ
+        /// </summary>
+        [JsonProperty("_illustrator")]
+        public string Illusrator { get; set; }
+
+        /// <summary>
+        /// セリフ
+        /// </summary>
+        [JsonProperty("_phrase")]
+        public string Phrase { get; set; }
+
+        /// <summary>
+        /// レアリティ
+        /// </summary>
+        [JsonProperty("_rarity")]
+        public string Rarity { get; set; }
+
+        /// <summary>
+        /// クラス
+        /// </summary>
+        [JsonProperty("_class")]
+        public string Class { get; set; }
+
+        /// <summary>
+        /// 職業
+        /// </summary>
+        [JsonProperty("_job")]
+        public string Job { get; set; }
 
         /// <summary>
         /// 出撃コスト
@@ -49,7 +84,7 @@ namespace FECardSercher
         /// <summary>
         /// 武器
         /// </summary>
-        [JsonProperty("_arms")]
+        [JsonProperty("_arm")]
         public string Arms { get; set; }
 
         /// <summary>
