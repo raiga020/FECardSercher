@@ -62,15 +62,42 @@ namespace FECardSercher
 
         public bool IsMatch(SearchOption option)
         {
-            // keyword 検索
-            if ((option.FromAll || option.FromCardName) && CardName.Contains(option.KeyWord)) return true;
-            if ((option.FromAll || option.FromUnitName) && UnitName.Contains(option.KeyWord)) return true;
-            if ((option.FromAll || option.FromTitle) && Title.Contains(option.KeyWord)) return true;
-            if ((option.FromAll || option.FromPhrase) && Phrase.Contains(option.KeyWord)) return true;
-            if ((option.FromAll || option.FromJob) && Job.Contains(option.KeyWord)) return true;
-            if ((option.FromAll || option.FromCardNo) && CardNumber.Contains(option.KeyWord)) return true;
+            // パラメータ検索
+            if (option.MinCost.HasValue && option.MinCost.Value > Cost) return false;
+            if (option.MaxCost.HasValue && option.MaxCost.Value < Cost) return false;
+            if (option.MinCCCost.HasValue && option.MinCost.Value > ClassChangeCost) return false;
+            if (option.MaxCCCost.HasValue && option.MaxCost.Value < ClassChangeCost) return false;
+            if (option.Class.HasValue && option.Class.Value != Class) return false;
+            if (option.MinAttack.HasValue && option.MinAttack.Value > Attack) return false;
+            if (option.MaxAttack.HasValue && option.MaxAttack.Value < Attack) return false;
+            if (option.MinSupport.HasValue && option.MinSupport.Value > Support) return false;
+            if (option.MaxSupport.HasValue && option.MaxSupport.Value < Support) return false;
+            if (option.Symbol.HasValue && option.Symbol.Value != Symbol) return false;
+            if (option.Sex.HasValue && option.Sex.Value != Sex) return false;
+            if (option.Arm.HasValue && option.Arm.Value != Arm) return false;
+            if (option.Type.HasValue && Types.Contains(option.Type.Value)) return false;
+            if (option.MinRange.HasValue && option.MinRange.Value != MinRange) return false;
+            if (option.MaxRange.HasValue && option.MaxRange.Value != MaxRange) return false;
+            // TODO: レアリティ
 
-            return false;
+            if (!string.IsNullOrEmpty(option.KeyWord))
+            {
+                // keyword 検索
+                if ((option.FromAll || option.FromCardName) && CardName.Contains(option.KeyWord)) return true;
+                if ((option.FromAll || option.FromUnitName) && UnitName.Contains(option.KeyWord)) return true;
+                if ((option.FromAll || option.FromTitle) && Title.Contains(option.KeyWord)) return true;
+                if ((option.FromAll || option.FromPhrase) && Phrase.Contains(option.KeyWord)) return true;
+                if ((option.FromAll || option.FromJob) && Job.Contains(option.KeyWord)) return true;
+                if ((option.FromAll || option.FromCardNo) && CardNumber.Contains(option.KeyWord)) return true;
+
+                return false;
+            }
+            else
+            {
+                // キーワード指定なしでここまで抜けてきたら全条件通過しているので true を返す
+                return true;
+            }
+            
         }
 
         //=======================================================================================================
