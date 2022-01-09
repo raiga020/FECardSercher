@@ -158,7 +158,7 @@ namespace FECardSercher
 
             var split = range.Split('-');
             // 単射程
-            if(split.Length == 0)
+            if(split.Length == 1)
             {
                 int.TryParse(split[0], out minRange);
                 maxRange = minRange;

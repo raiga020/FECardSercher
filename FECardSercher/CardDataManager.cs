@@ -25,12 +25,12 @@ namespace FECardSercher
         //=======================================================================================================
         // public method
         //=======================================================================================================
-        public List<CardDataJsonDefine> Search(SearchOption option)
+        public List<CardData> Search(SearchOption option)
         {
-            var ret = new List<CardDataJsonDefine>();
+            var ret = new List<CardData>();
 
             // keyword検索
-            ret.AddRange(JsonCardDataList.FindAll(one =>
+            ret.AddRange(CardDataList.FindAll(one =>
                ((option.FromAll || option.FromCardName) && one.UnitName.Contains(option.KeyWord))
             ));
 
@@ -54,6 +54,7 @@ namespace FECardSercher
             var deserialized = JsonConvert.DeserializeObject<List<CardDataJsonDefine>>(data);
             mJsonDataList = new List<CardDataJsonDefine>();
             deserialized.ForEach(one => mJsonDataList.Add(one));
+            deserialized.ForEach(one => mCardDataList.Add(new CardData(one)));
         }
 
         private void debugPrint()
@@ -75,7 +76,7 @@ namespace FECardSercher
         /// <summary>
         /// カード名 -> カードデータの辞書
         /// </summary>
-        public List<CardDataJsonDefine> JsonCardDataList { get { return mJsonDataList; } }
+        public List<CardData> CardDataList { get { return mCardDataList; } }
 
         //=======================================================================================================
         // field
