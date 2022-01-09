@@ -107,18 +107,16 @@ namespace FECardSercher
                 // スペース区切りの場合は and 検索
                 string[] split = option.KeyWord.Replace('　', ' ').Split(' ');
 
-                foreach(var keyword in split)
-                {
-                    if ((option.FromAll || option.FromCardName) && !CardName.Contains(keyword)) return false;
-                    if ((option.FromAll || option.FromUnitName) && !UnitName.Contains(keyword)) return false;
-                    if ((option.FromAll || option.FromTitle) && !Title.Contains(keyword)) return false;
-                    if ((option.FromAll || option.FromPhrase) && !Phrase.Contains(keyword)) return false;
-                    if ((option.FromAll || option.FromJob) && !Job.Contains(keyword)) return false;
-                    if ((option.FromAll || option.FromCardNo) && !CardNumber.Contains(keyword)) return false;
-                    if ((option.FromAll || option.FromSkills) && !Skill.Contains(keyword)) return false;
-                }
+                // チェック複数の場合は or 検索
+                if ((option.FromAll || option.FromCardName) && split.All(keyword => CardName.Contains(keyword))) return true;
+                if ((option.FromAll || option.FromUnitName) && split.All(keyword => UnitName.Contains(keyword))) return true;
+                if ((option.FromAll || option.FromTitle) && split.All(keyword => Title.Contains(keyword))) return true;
+                if ((option.FromAll || option.FromPhrase) && split.All(keyword => Phrase.Contains(keyword))) return true;
+                if ((option.FromAll || option.FromJob) && split.All(keyword => Job.Contains(keyword))) return true;
+                if ((option.FromAll || option.FromCardNo) && split.All(keyword => CardNumber.Contains(keyword))) return true;
+                if ((option.FromAll || option.FromSkills) && split.All(keyword => Skill.Contains(keyword))) return true;
 
-                return true;
+                return false;
             }
             else
             {
