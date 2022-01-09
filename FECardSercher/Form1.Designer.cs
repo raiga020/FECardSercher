@@ -76,6 +76,8 @@
             this.SearchResultListBox = new System.Windows.Forms.ListBox();
             this.SerachResultPanel = new System.Windows.Forms.Panel();
             this.AppearSearchButton = new System.Windows.Forms.Button();
+            this.CardTextBox = new System.Windows.Forms.RichTextBox();
+            this.CardTextPanel.SuspendLayout();
             this.SeachOptionPanel.SuspendLayout();
             this.SerachResultPanel.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +93,7 @@
             // CardTextPanel
             // 
             this.CardTextPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CardTextPanel.Controls.Add(this.CardTextBox);
             this.CardTextPanel.Location = new System.Drawing.Point(13, 450);
             this.CardTextPanel.Name = "CardTextPanel";
             this.CardTextPanel.Size = new System.Drawing.Size(308, 126);
@@ -694,6 +697,7 @@
             this.SearchResultListBox.Name = "SearchResultListBox";
             this.SearchResultListBox.Size = new System.Drawing.Size(319, 556);
             this.SearchResultListBox.TabIndex = 0;
+            this.SearchResultListBox.SelectedIndexChanged += new System.EventHandler(this.SearchResultListBox_SelectedIndexChanged);
             // 
             // SerachResultPanel
             // 
@@ -715,6 +719,14 @@
             this.AppearSearchButton.UseVisualStyleBackColor = true;
             this.AppearSearchButton.Click += new System.EventHandler(this.AppearSearchButton_Click);
             // 
+            // CardTextBox
+            // 
+            this.CardTextBox.Location = new System.Drawing.Point(4, 4);
+            this.CardTextBox.Name = "CardTextBox";
+            this.CardTextBox.Size = new System.Drawing.Size(301, 116);
+            this.CardTextBox.TabIndex = 0;
+            this.CardTextBox.Text = "";
+            // 
             // FECipherCardSearcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -727,6 +739,7 @@
             this.Controls.Add(this.CardImagePanel);
             this.Name = "FECipherCardSearcher";
             this.Text = "FECipherCardSearcher";
+            this.CardTextPanel.ResumeLayout(false);
             this.SeachOptionPanel.ResumeLayout(false);
             this.SeachOptionPanel.PerformLayout();
             this.SerachResultPanel.ResumeLayout(false);
@@ -783,6 +796,7 @@
         private System.Windows.Forms.ListBox SearchResultListBox;
         private System.Windows.Forms.Panel SerachResultPanel;
         private System.Windows.Forms.Button AppearSearchButton;
+        private System.Windows.Forms.RichTextBox CardTextBox;
     }
 }
 

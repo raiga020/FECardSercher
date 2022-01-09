@@ -12,6 +12,8 @@ namespace FECardSercher
 {
     public partial class FECipherCardSearcher : Form
     {
+        private CardDataManager mCardDataManager = new CardDataManager();
+
         public FECipherCardSearcher()
         {
             InitializeComponent();
@@ -103,6 +105,12 @@ namespace FECardSercher
             SeachOptionPanel.Visible = true;
         }
 
-        private CardDataManager mCardDataManager = new CardDataManager();
+        private void SearchResultListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CardData card = SearchResultListBox.SelectedItem as CardData;
+            if (card == null) return;
+
+            CardTextBox.Text = card.Skill;
+        }
     }
 }
