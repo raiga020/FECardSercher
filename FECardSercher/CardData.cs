@@ -22,6 +22,9 @@ namespace FECardSercher
             mUnitName = json.UnitName;
             mCardName = string.Format("{0} {1}", mTitle, mUnitName);
 
+            mImagePath = json.ImageName;
+            mCardNumber = CardDataParser.ParseCardNo(mImagePath);
+
             mPhrase = json.Phrase;
             mIllustrator = json.Illusrator;
             mJob = json.Job;
@@ -65,7 +68,7 @@ namespace FECardSercher
             if ((option.FromAll || option.FromTitle) && Title.Contains(option.KeyWord)) return true;
             if ((option.FromAll || option.FromPhrase) && Phrase.Contains(option.KeyWord)) return true;
             if ((option.FromAll || option.FromJob) && Job.Contains(option.KeyWord)) return true;
-            // TODO: CardNo
+            if ((option.FromAll || option.FromCardNo) && CardNumber.Contains(option.KeyWord)) return true;
 
             return false;
         }
@@ -76,6 +79,7 @@ namespace FECardSercher
         public string CardName { get { return mCardName; } }
         public string Title { get { return mTitle; } }
         public string UnitName { get { return mUnitName; } }
+        public string CardNumber { get { return mCardNumber; } }
         public string Phrase { get { return mPhrase; } }
         public string Illustrator { get { return mIllustrator; } }
         public string Job { get { return mJob; } }
@@ -104,6 +108,9 @@ namespace FECardSercher
         private string mPhrase = "";
         private string mIllustrator = "";
         private string mJob = "";
+
+        private string mImagePath = "";
+        private string mCardNumber = "";
 
         private int mCost = 0;
         private int mClassChangeCost = 0;

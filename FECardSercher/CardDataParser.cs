@@ -9,6 +9,17 @@ namespace FECardSercher
     public class CardDataParser
     {
         /// <summary>
+        /// 画像パスからカードNoを抽出します
+        /// X00-000Y_SAMPLE.png の形式なので末尾を削ればよい
+        /// </summary>
+        /// <param name="imageName"></param>
+        /// <returns></returns>
+        public static string ParseCardNo(string imageName)
+        {
+            return imageName.Replace("_SAMPLE.png", "");
+        }
+
+        /// <summary>
         /// シンボルの解釈
         /// 複数シンボルもシンボルの1種として解釈する
         /// </summary>
