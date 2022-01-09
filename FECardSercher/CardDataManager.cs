@@ -27,14 +27,7 @@ namespace FECardSercher
         //=======================================================================================================
         public List<CardData> Search(SearchOption option)
         {
-            var ret = new List<CardData>();
-
-            // keyword検索
-            ret.AddRange(CardDataList.FindAll(one =>
-               ((option.FromAll || option.FromCardName) && one.UnitName.Contains(option.KeyWord))
-            ));
-
-            return ret;
+            return mCardDataList.FindAll(one => one.IsMatch(option));
         }
 
         //=======================================================================================================

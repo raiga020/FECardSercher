@@ -24,6 +24,7 @@ namespace FECardSercher
 
             mPhrase = json.Phrase;
             mIllustrator = json.Illusrator;
+            mJob = json.Job;
 
             int.TryParse(json.Attack, out mAttack);
             int.TryParse(json.Support, out mSupport);
@@ -56,6 +57,19 @@ namespace FECardSercher
             mSkill = json.Skill;
         }
 
+        public bool IsMatch(SearchOption option)
+        {
+            // keyword 検索
+            if ((option.FromAll || option.FromCardName) && CardName.Contains(option.KeyWord)) return true;
+            if ((option.FromAll || option.FromUnitName) && UnitName.Contains(option.KeyWord)) return true;
+            if ((option.FromAll || option.FromTitle) && Title.Contains(option.KeyWord)) return true;
+            if ((option.FromAll || option.FromPhrase) && Phrase.Contains(option.KeyWord)) return true;
+            if ((option.FromAll || option.FromJob) && Job.Contains(option.KeyWord)) return true;
+            // TODO: CardNo
+
+            return false;
+        }
+
         //=======================================================================================================
         // property
         //=======================================================================================================
@@ -64,6 +78,7 @@ namespace FECardSercher
         public string UnitName { get { return mUnitName; } }
         public string Phrase { get { return mPhrase; } }
         public string Illustrator { get { return mIllustrator; } }
+        public string Job { get { return mJob; } }
         public int Cost { get { return mCost; } }
         public int ClassChangeCost { get { return mClassChangeCost;} }
         public bool HasClassChangeCost { get { return mHasClassChangeCost; } }
@@ -88,6 +103,7 @@ namespace FECardSercher
         private string mUnitName = "";
         private string mPhrase = "";
         private string mIllustrator = "";
+        private string mJob = "";
 
         private int mCost = 0;
         private int mClassChangeCost = 0;
