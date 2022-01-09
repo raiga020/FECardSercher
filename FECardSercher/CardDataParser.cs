@@ -181,6 +181,53 @@ namespace FECardSercher
         }
 
         /// <summary>
+        /// レアリティの解釈
+        /// </summary>
+        /// <param name="rarity"></param>
+        /// <returns></returns>
+        public static CardData.ERarity ParseRarity(string rarity)
+        {
+            switch (rarity)
+            {
+                case "ST":
+                    return CardData.ERarity.ST;
+                case "ST+":
+                    return CardData.ERarity.SRPlus;
+                case "SR":
+                    return CardData.ERarity.SR;
+                case "SR+":
+                    return CardData.ERarity.SRPlus;
+                case "R":
+                    return CardData.ERarity.R;
+                case "R+":
+                    return CardData.ERarity.RPlus;
+                case "R+X":
+                    return CardData.ERarity.RPlusX;
+                case "HN":
+                    return CardData.ERarity.HN;
+                case "HNX":
+                    return CardData.ERarity.HNX;
+                case "HR":
+                    return CardData.ERarity.HR;
+                case "N":
+                    return CardData.ERarity.N;
+                case "N+X":
+                    return CardData.ERarity.NPlusX;
+                case "+X":
+                    return CardData.ERarity.PlusX;
+                case "PR":
+                    return CardData.ERarity.PR;
+                case "PRr":
+                    return CardData.ERarity.PRr;
+                case "PR+":
+                    return CardData.ERarity.PRPlus;
+                default:
+                    System.Console.Error.WriteLine("想定外のレアリティです：{0}", rarity);
+                    return CardData.ERarity.N;
+            }
+        }
+
+        /// <summary>
         /// 射程の解釈
         /// </summary>
         /// <param name="range"></param>

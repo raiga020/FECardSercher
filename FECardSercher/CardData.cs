@@ -24,6 +24,7 @@ namespace FECardSercher
 
             mImagePath = json.ImageName;
             mCardNumber = CardDataParser.ParseCardNo(mImagePath);
+            mRarity = CardDataParser.ParseRarity(json.Rarity);
 
             mPhrase = json.Phrase;
             mIllustrator = json.Illusrator;
@@ -78,7 +79,7 @@ namespace FECardSercher
             if (option.Type.HasValue && Types.Contains(option.Type.Value)) return false;
             if (option.MinRange.HasValue && option.MinRange.Value != MinRange) return false;
             if (option.MaxRange.HasValue && option.MaxRange.Value != MaxRange) return false;
-            // TODO: レアリティ
+            if (option.Rarity.HasValue && option.Rarity.Value != Rarity) return false;
 
             if (!string.IsNullOrEmpty(option.KeyWord))
             {
@@ -109,6 +110,7 @@ namespace FECardSercher
         public string CardNumber { get { return mCardNumber; } }
         public string Phrase { get { return mPhrase; } }
         public string Illustrator { get { return mIllustrator; } }
+        public ERarity Rarity { get { return mRarity; } }
         public string Job { get { return mJob; } }
         public int Cost { get { return mCost; } }
         public int ClassChangeCost { get { return mClassChangeCost;} }
@@ -138,6 +140,7 @@ namespace FECardSercher
 
         private string mImagePath = "";
         private string mCardNumber = "";
+        private ERarity mRarity = ERarity.N;
 
         private int mCost = 0;
         private int mClassChangeCost = 0;
