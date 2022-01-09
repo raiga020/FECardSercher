@@ -14,33 +14,11 @@ namespace FECardSercher
     /// </summary>
     public class CardDataManager
     {
-        #region singleton
-        public static void Create()
-        {
-            if (sInstance != null) return;
-
-            sInstance = new CardDataManager();
-        }
-
-        public static CardDataManager GetInstance() 
-        {
-            if(sInstance == null)
-            {
-                Create();
-            }
-
-            return sInstance; 
-        }
-
-        private static CardDataManager sInstance = null;
-        #endregion
-
         //=======================================================================================================
         // ctor
         //=======================================================================================================
         public CardDataManager()
         {
-            loadUnitName();
             loadCardData();
         }
 
@@ -62,25 +40,6 @@ namespace FECardSercher
         //=======================================================================================================
         // private method
         //=======================================================================================================
-        private void loadUnitName()
-        {
-            mUnitNameList = new List<string>();
-
-            // UnitNameList.txt からユニット名を読み込んでリストに格納
-            string filePath = string.Format("{0}/Resources/UnitNameList.txt", Environment.CurrentDirectory);
-            string data = "";
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                data = reader.ReadToEnd();
-            }
-
-            var split = data.Split('\n');
-            foreach (var one in split)
-            {
-                mUnitNameList.Add(one);
-            }
-        }
-
         private void loadCardData()
         {
             mCardDataList = new List<CardData>();

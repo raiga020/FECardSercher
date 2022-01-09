@@ -18,18 +18,9 @@ namespace FECardSercher
         public CardData(CardDataJsonDefine json)
         {
             // パラメータ格納
-            mCardName = json.UnitName;
-            {
-                var unitNameList = CardDataManager.GetInstance();
-                foreach (var unitName in unitNameList.UnitNameList)
-                {
-                    if(mCardName.Contains(unitName))
-                    {
-                        mUnitName = unitName;
-                        mTitle = mCardName.Replace(unitName, "");
-                    }
-                }
-            }
+            mTitle = json.TitleName;
+            mUnitName = json.UnitName;
+            mCardName = string.Format("{0} {1}", mTitle, mUnitName);
 
             int.TryParse(json.Attack, out mAttack);
             int.TryParse(json.Support, out mSupport);

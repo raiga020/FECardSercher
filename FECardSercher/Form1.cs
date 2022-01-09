@@ -15,15 +15,12 @@ namespace FECardSercher
         public FECipherCardSearcher()
         {
             InitializeComponent();
-
-            // シングルトンの生成
-            CardDataManager.Create();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
             mSerachOption.KeyWord = KeywordTextBox.Text;
-            var result = CardDataManager.GetInstance().Search(mSerachOption);
+            var result = mCardDataManager.Search(mSerachOption);
 
             if (result != null)
             {
@@ -33,6 +30,8 @@ namespace FECardSercher
                 }
             }
         }
+
+        private CardDataManager mCardDataManager = new CardDataManager();
 
         private SearchOption mSerachOption = new SearchOption();
     }
