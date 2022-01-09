@@ -70,7 +70,12 @@ namespace FECardSercher
                 {
                     System.Console.WriteLine(card.CardName);
                 }
+
+                SearchResultListBox.Items.Clear();
+                SearchResultListBox.Items.AddRange(result.ToArray());
             }
+
+            SeachOptionPanel.Visible = false;
         }
 
         private int? getSelectedValueToInt(ComboBox comboBox)

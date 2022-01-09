@@ -30,8 +30,7 @@
         {
             this.CardImagePanel = new System.Windows.Forms.Panel();
             this.CardTextPanel = new System.Windows.Forms.Panel();
-            this.SerachResultPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.SeachOptionPanel = new System.Windows.Forms.Panel();
             this.SearchButton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,7 +72,10 @@
             this.CardNameCheckBox = new System.Windows.Forms.CheckBox();
             this.KeywordLabel = new System.Windows.Forms.Label();
             this.KeywordTextBox = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.SearchResultListBox = new System.Windows.Forms.ListBox();
+            this.SerachResultPanel = new System.Windows.Forms.Panel();
+            this.SeachOptionPanel.SuspendLayout();
+            this.SerachResultPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // CardImagePanel
@@ -92,61 +94,53 @@
             this.CardTextPanel.Size = new System.Drawing.Size(308, 126);
             this.CardTextPanel.TabIndex = 1;
             // 
-            // SerachResultPanel
+            // SeachOptionPanel
             // 
-            this.SerachResultPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SerachResultPanel.Location = new System.Drawing.Point(328, 12);
-            this.SerachResultPanel.Name = "SerachResultPanel";
-            this.SerachResultPanel.Size = new System.Drawing.Size(325, 563);
-            this.SerachResultPanel.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.SearchButton);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.RangeComboBox);
-            this.panel1.Controls.Add(this.TypeComboBox);
-            this.panel1.Controls.Add(this.RarityComboBox);
-            this.panel1.Controls.Add(this.ArmComboBox);
-            this.panel1.Controls.Add(this.SexComboBox);
-            this.panel1.Controls.Add(this.SymbolComboBox);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.MaxSupportComboBox);
-            this.panel1.Controls.Add(this.MinSupportComboBox);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.MaxAttackComboBox);
-            this.panel1.Controls.Add(this.MinAttackComboBox);
-            this.panel1.Controls.Add(this.ClassComboBox);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.MaxCCCostComboBox);
-            this.panel1.Controls.Add(this.MinCCCostComboBox);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.MaxCostComboBox);
-            this.panel1.Controls.Add(this.MinCostComboBox);
-            this.panel1.Controls.Add(this.IllustratorCheckBox);
-            this.panel1.Controls.Add(this.PhraseCheckBox);
-            this.panel1.Controls.Add(this.JobCheckBox);
-            this.panel1.Controls.Add(this.CardNoCheckBox);
-            this.panel1.Controls.Add(this.SkillsCheckBox);
-            this.panel1.Controls.Add(this.UnitNameCheckBox);
-            this.panel1.Controls.Add(this.CardTitleCheckBox);
-            this.panel1.Controls.Add(this.CardNameCheckBox);
-            this.panel1.Controls.Add(this.KeywordLabel);
-            this.panel1.Controls.Add(this.KeywordTextBox);
-            this.panel1.Location = new System.Drawing.Point(68, 8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(534, 405);
-            this.panel1.TabIndex = 3;
+            this.SeachOptionPanel.Controls.Add(this.SearchButton);
+            this.SeachOptionPanel.Controls.Add(this.label15);
+            this.SeachOptionPanel.Controls.Add(this.label10);
+            this.SeachOptionPanel.Controls.Add(this.label11);
+            this.SeachOptionPanel.Controls.Add(this.label12);
+            this.SeachOptionPanel.Controls.Add(this.label13);
+            this.SeachOptionPanel.Controls.Add(this.label14);
+            this.SeachOptionPanel.Controls.Add(this.label9);
+            this.SeachOptionPanel.Controls.Add(this.label8);
+            this.SeachOptionPanel.Controls.Add(this.label7);
+            this.SeachOptionPanel.Controls.Add(this.label6);
+            this.SeachOptionPanel.Controls.Add(this.label3);
+            this.SeachOptionPanel.Controls.Add(this.RangeComboBox);
+            this.SeachOptionPanel.Controls.Add(this.TypeComboBox);
+            this.SeachOptionPanel.Controls.Add(this.RarityComboBox);
+            this.SeachOptionPanel.Controls.Add(this.ArmComboBox);
+            this.SeachOptionPanel.Controls.Add(this.SexComboBox);
+            this.SeachOptionPanel.Controls.Add(this.SymbolComboBox);
+            this.SeachOptionPanel.Controls.Add(this.label5);
+            this.SeachOptionPanel.Controls.Add(this.MaxSupportComboBox);
+            this.SeachOptionPanel.Controls.Add(this.MinSupportComboBox);
+            this.SeachOptionPanel.Controls.Add(this.label4);
+            this.SeachOptionPanel.Controls.Add(this.MaxAttackComboBox);
+            this.SeachOptionPanel.Controls.Add(this.MinAttackComboBox);
+            this.SeachOptionPanel.Controls.Add(this.ClassComboBox);
+            this.SeachOptionPanel.Controls.Add(this.label2);
+            this.SeachOptionPanel.Controls.Add(this.MaxCCCostComboBox);
+            this.SeachOptionPanel.Controls.Add(this.MinCCCostComboBox);
+            this.SeachOptionPanel.Controls.Add(this.label1);
+            this.SeachOptionPanel.Controls.Add(this.MaxCostComboBox);
+            this.SeachOptionPanel.Controls.Add(this.MinCostComboBox);
+            this.SeachOptionPanel.Controls.Add(this.IllustratorCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.PhraseCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.JobCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.CardNoCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.SkillsCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.UnitNameCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.CardTitleCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.CardNameCheckBox);
+            this.SeachOptionPanel.Controls.Add(this.KeywordLabel);
+            this.SeachOptionPanel.Controls.Add(this.KeywordTextBox);
+            this.SeachOptionPanel.Location = new System.Drawing.Point(68, 8);
+            this.SeachOptionPanel.Name = "SeachOptionPanel";
+            this.SeachOptionPanel.Size = new System.Drawing.Size(534, 405);
+            this.SeachOptionPanel.TabIndex = 3;
             // 
             // SearchButton
             // 
@@ -690,19 +684,38 @@
             this.KeywordTextBox.Size = new System.Drawing.Size(359, 19);
             this.KeywordTextBox.TabIndex = 0;
             // 
+            // SearchResultListBox
+            // 
+            this.SearchResultListBox.FormattingEnabled = true;
+            this.SearchResultListBox.ItemHeight = 12;
+            this.SearchResultListBox.Location = new System.Drawing.Point(3, 2);
+            this.SearchResultListBox.Name = "SearchResultListBox";
+            this.SearchResultListBox.Size = new System.Drawing.Size(319, 556);
+            this.SearchResultListBox.TabIndex = 0;
+            // 
+            // SerachResultPanel
+            // 
+            this.SerachResultPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SerachResultPanel.Controls.Add(this.SearchResultListBox);
+            this.SerachResultPanel.Location = new System.Drawing.Point(328, 12);
+            this.SerachResultPanel.Name = "SerachResultPanel";
+            this.SerachResultPanel.Size = new System.Drawing.Size(325, 563);
+            this.SerachResultPanel.TabIndex = 2;
+            // 
             // FECipherCardSearcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 588);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SeachOptionPanel);
             this.Controls.Add(this.SerachResultPanel);
             this.Controls.Add(this.CardTextPanel);
             this.Controls.Add(this.CardImagePanel);
             this.Name = "FECipherCardSearcher";
             this.Text = "FECipherCardSearcher";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.SeachOptionPanel.ResumeLayout(false);
+            this.SeachOptionPanel.PerformLayout();
+            this.SerachResultPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -711,8 +724,7 @@
 
         private System.Windows.Forms.Panel CardImagePanel;
         private System.Windows.Forms.Panel CardTextPanel;
-        private System.Windows.Forms.Panel SerachResultPanel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel SeachOptionPanel;
         private System.Windows.Forms.Label KeywordLabel;
         private System.Windows.Forms.TextBox KeywordTextBox;
         private System.Windows.Forms.Button SearchButton;
@@ -754,6 +766,8 @@
         private System.Windows.Forms.CheckBox UnitNameCheckBox;
         private System.Windows.Forms.CheckBox CardTitleCheckBox;
         private System.Windows.Forms.CheckBox CardNameCheckBox;
+        private System.Windows.Forms.ListBox SearchResultListBox;
+        private System.Windows.Forms.Panel SerachResultPanel;
     }
 }
 
