@@ -101,17 +101,24 @@ namespace FECardSercher
             if (option.MaxRange.HasValue && option.MaxRange.Value != MaxRange) return false;
             if (option.Rarity.HasValue && option.Rarity.Value != Rarity) return false;
 
+            // keyword 検索
             if (!string.IsNullOrEmpty(option.KeyWord))
             {
-                // keyword 検索
-                if ((option.FromAll || option.FromCardName) && CardName.Contains(option.KeyWord)) return true;
-                if ((option.FromAll || option.FromUnitName) && UnitName.Contains(option.KeyWord)) return true;
-                if ((option.FromAll || option.FromTitle) && Title.Contains(option.KeyWord)) return true;
-                if ((option.FromAll || option.FromPhrase) && Phrase.Contains(option.KeyWord)) return true;
-                if ((option.FromAll || option.FromJob) && Job.Contains(option.KeyWord)) return true;
-                if ((option.FromAll || option.FromCardNo) && CardNumber.Contains(option.KeyWord)) return true;
+                // スペース区切りの場合は and 検索
+                string[] split = option.KeyWord.Replace('　', ' ').Split(' ');
 
-                return false;
+                foreach(var keyword in split)
+                {
+                    if ((option.FromAll || option.FromCardName) && !CardName.Contains(keyword)) return false;
+                    if ((option.FromAll || option.FromUnitName) && !UnitName.Contains(keyword)) return false;
+                    if ((option.FromAll || option.FromTitle) && !Title.Contains(keyword)) return false;
+                    if ((option.FromAll || option.FromPhrase) && !Phrase.Contains(keyword)) return false;
+                    if ((option.FromAll || option.FromJob) && !Job.Contains(keyword)) return false;
+                    if ((option.FromAll || option.FromCardNo) && !CardNumber.Contains(keyword)) return false;
+                    if ((option.FromAll || option.FromSkills) && !Skill.Contains(keyword)) return false;
+                }
+
+                return true;
             }
             else
             {
