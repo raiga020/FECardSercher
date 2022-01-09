@@ -221,6 +221,8 @@ namespace FECardSercher
                     return CardData.ERarity.PRr;
                 case "PR+":
                     return CardData.ERarity.PRPlus;
+                case "PRX":
+                    return CardData.ERarity.PRX;
                 default:
                     System.Console.Error.WriteLine("想定外のレアリティです：{0}", rarity);
                     return CardData.ERarity.N;

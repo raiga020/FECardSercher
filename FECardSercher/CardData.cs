@@ -31,21 +31,40 @@ namespace FECardSercher
             mJob = json.Job;
 
             int.TryParse(json.Attack, out mAttack);
-            int.TryParse(json.Support, out mSupport);
-            if(mSupport == 0 && json.Support.Equals("Ｘ"))
-            {
-                mIsSupportX = true;
-            }
 
-            int.TryParse(json.Cost, out mCost);
-            if (string.IsNullOrEmpty(json.ClassChangeCost))
+            if(json.Support == "Ｘ")
             {
-                mClassChangeCost = 0;
+                mSupport = XValue;
+            }
+            else
+            {
+                int.TryParse(json.Support, out mSupport);
+            }
+            
+            if(json.Cost == "Ｘ")
+            {
+                mCost = XValue;
+            }
+            else
+            {
+                int.TryParse(json.Cost, out mCost);
+            }
+            
+            if (string.IsNullOrEmpty(json.ClassChangeCost) || json.ClassChangeCost == "（なし）")
+            {
+                mClassChangeCost = -1;
                 mHasClassChangeCost = false;
             }
             else
             {
-                int.TryParse(json.ClassChangeCost, out mClassChangeCost);
+                if(json.ClassChangeCost == "Ｘ")
+                {
+                    mClassChangeCost = XValue;
+                }
+                else
+                {
+                    int.TryParse(json.ClassChangeCost, out mClassChangeCost);
+                }
                 mHasClassChangeCost = true;
             }
 
@@ -161,6 +180,8 @@ namespace FECardSercher
 
         private string mSkill = "";
 
+        public static int XValue = 999;
+
         public enum ESymbol
         {
             None,
@@ -241,6 +262,7 @@ namespace FECardSercher
             PR,
             PRr,
             PRPlus,
+            PRX,
         }
     }
 }
