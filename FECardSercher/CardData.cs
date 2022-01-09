@@ -23,6 +23,7 @@ namespace FECardSercher
             mCardName = string.Format("{0} {1}", mTitle, mUnitName);
 
             mImagePath = json.ImageName;
+            
             mCardNumber = CardDataParser.ParseCardNo(mImagePath);
             mRarity = CardDataParser.ParseRarity(json.Rarity);
 
@@ -117,7 +118,17 @@ namespace FECardSercher
                 // キーワード指定なしでここまで抜けてきたら全条件通過しているので true を返す
                 return true;
             }
-            
+        }
+
+        public System.Drawing.Image LoadImage()
+        {
+            string fullPath = string.Format("{0}/Resources/Image/{1}", Environment.CurrentDirectory, mImagePath);
+            if (System.IO.File.Exists(fullPath))
+            {
+                return System.Drawing.Image.FromFile(fullPath);
+            }
+
+            return null;
         }
 
         public override string ToString()

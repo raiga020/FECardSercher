@@ -13,7 +13,7 @@ namespace FECardSercher
     public partial class FECipherCardSearcher : Form
     {
         private CardDataManager mCardDataManager = new CardDataManager();
-
+        
         public FECipherCardSearcher()
         {
             InitializeComponent();
@@ -111,6 +111,13 @@ namespace FECardSercher
             if (card == null) return;
 
             CardTextBox.Text = card.Skill;
+
+            if(CardImageBox.Image != null)
+            {
+                // メモリに溜まり続けないように解放してから読み込み
+                CardImageBox.Image.Dispose();
+            }
+            CardImageBox.Image = card.LoadImage();
         }
     }
 }
