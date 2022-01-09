@@ -59,5 +59,15 @@ namespace FECardSercher {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap AppearSearchButton_Image {
+            get {
+                object obj = ResourceManager.GetObject("AppearSearchButton.Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

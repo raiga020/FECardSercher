@@ -98,6 +98,11 @@ namespace FECardSercher
             return comboBox.SelectedItem != null && comboBox.SelectedItem.ToString() != "指定なし";
         }
 
+        private void AppearSearchButton_Click(object sender, EventArgs e)
+        {
+            SeachOptionPanel.Visible = true;
+        }
+
         private CardDataManager mCardDataManager = new CardDataManager();
     }
 }

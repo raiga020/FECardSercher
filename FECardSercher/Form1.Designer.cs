@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FECipherCardSearcher));
             this.CardImagePanel = new System.Windows.Forms.Panel();
             this.CardTextPanel = new System.Windows.Forms.Panel();
             this.SeachOptionPanel = new System.Windows.Forms.Panel();
@@ -74,6 +75,7 @@
             this.KeywordTextBox = new System.Windows.Forms.TextBox();
             this.SearchResultListBox = new System.Windows.Forms.ListBox();
             this.SerachResultPanel = new System.Windows.Forms.Panel();
+            this.AppearSearchButton = new System.Windows.Forms.Button();
             this.SeachOptionPanel.SuspendLayout();
             this.SerachResultPanel.SuspendLayout();
             this.SuspendLayout();
@@ -702,11 +704,23 @@
             this.SerachResultPanel.Size = new System.Drawing.Size(325, 563);
             this.SerachResultPanel.TabIndex = 2;
             // 
+            // AppearSearchButton
+            // 
+            this.AppearSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("AppearSearchButton.Image")));
+            this.AppearSearchButton.Location = new System.Drawing.Point(644, -1);
+            this.AppearSearchButton.Name = "AppearSearchButton";
+            this.AppearSearchButton.Size = new System.Drawing.Size(20, 20);
+            this.AppearSearchButton.TabIndex = 4;
+            this.AppearSearchButton.TabStop = false;
+            this.AppearSearchButton.UseVisualStyleBackColor = true;
+            this.AppearSearchButton.Click += new System.EventHandler(this.AppearSearchButton_Click);
+            // 
             // FECipherCardSearcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 588);
+            this.Controls.Add(this.AppearSearchButton);
             this.Controls.Add(this.SeachOptionPanel);
             this.Controls.Add(this.SerachResultPanel);
             this.Controls.Add(this.CardTextPanel);
@@ -768,6 +782,7 @@
         private System.Windows.Forms.CheckBox CardNameCheckBox;
         private System.Windows.Forms.ListBox SearchResultListBox;
         private System.Windows.Forms.Panel SerachResultPanel;
+        private System.Windows.Forms.Button AppearSearchButton;
     }
 }
 
