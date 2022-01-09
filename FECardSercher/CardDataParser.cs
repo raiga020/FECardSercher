@@ -135,8 +135,37 @@ namespace FECardSercher
                     return CardData.ESex.Male;
                 case "女":
                     return CardData.ESex.Female;
+                case "（なし）":
                 default:
                     return CardData.ESex.None;
+            }
+        }
+
+        public static CardData.EClass ParseClass(string input)
+        {
+            switch(input)
+            {
+                case "下級職":
+                    return CardData.EClass.Low;
+                case "中級職":
+                    return CardData.EClass.Middle;
+                case "上級職":
+                    return CardData.EClass.High;
+                case "最上級職":
+                    return CardData.EClass.Top;
+                case "初級職":
+                    return CardData.EClass.Beginner;
+                case "固定職":
+                    return CardData.EClass.Unique;
+                case "特殊職":
+                    return CardData.EClass.Special;
+                case "オーバークラス":
+                    return CardData.EClass.Over;
+                case "特級職":
+                    return CardData.EClass.Prime;
+                case "（なし）":
+                default:
+                    return CardData.EClass.None;
             }
         }
 

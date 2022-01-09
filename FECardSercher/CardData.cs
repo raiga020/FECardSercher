@@ -22,6 +22,9 @@ namespace FECardSercher
             mUnitName = json.UnitName;
             mCardName = string.Format("{0} {1}", mTitle, mUnitName);
 
+            mPhrase = json.Phrase;
+            mIllustrator = json.Illusrator;
+
             int.TryParse(json.Attack, out mAttack);
             int.TryParse(json.Support, out mSupport);
             if(mSupport == 0 && json.Support.Equals("Ｘ"))
@@ -46,6 +49,7 @@ namespace FECardSercher
             mArm = CardDataParser.ParseArm(json.Arms);
             mTypes = CardDataParser.ParseType(json.Type);
             mSex = CardDataParser.ParseSex(json.Sex);
+            mClass = CardDataParser.ParseClass(json.Class);
 
             CardDataParser.ParseRange(json.Range, out mMinRange, out mMaxRange);
 
@@ -58,6 +62,8 @@ namespace FECardSercher
         public string CardName { get { return mCardName; } }
         public string Title { get { return mTitle; } }
         public string UnitName { get { return mUnitName; } }
+        public string Phrase { get { return mPhrase; } }
+        public string Illustrator { get { return mIllustrator; } }
         public int Cost { get { return mCost; } }
         public int ClassChangeCost { get { return mClassChangeCost;} }
         public bool HasClassChangeCost { get { return mHasClassChangeCost; } }
@@ -68,6 +74,7 @@ namespace FECardSercher
         public EArm Arm { get { return mArm; } }
         public List<EType> Types { get { return mTypes; } }
         public ESex Sex { get { return mSex; } }
+        public EClass Class { get { return mClass; } }
         public int MinRange { get { return mMinRange; } }
         public int MaxRange { get { return mMaxRange; } }
 
@@ -79,6 +86,8 @@ namespace FECardSercher
         private string mCardName = "";
         private string mTitle = "";
         private string mUnitName = "";
+        private string mPhrase = "";
+        private string mIllustrator = "";
 
         private int mCost = 0;
         private int mClassChangeCost = 0;
@@ -92,6 +101,7 @@ namespace FECardSercher
         private EArm mArm = EArm.None;
         private List<EType> mTypes = new List<EType>();
         private ESex mSex = ESex.None;
+        private EClass mClass = EClass.None;
 
         private int mMinRange = 0;
         private int mMaxRange = 0;
