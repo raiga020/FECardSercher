@@ -322,7 +322,8 @@
             "+X",
             "PR",
             "PRr",
-            "PR+"});
+            "PR+",
+            "PRX"});
             this.RarityComboBox.Location = new System.Drawing.Point(423, 327);
             this.RarityComboBox.Name = "RarityComboBox";
             this.RarityComboBox.Size = new System.Drawing.Size(59, 20);
