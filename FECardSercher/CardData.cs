@@ -115,6 +115,7 @@ namespace FECardSercher
                 if ((option.FromAll || option.FromJob) && split.All(keyword => Job.Contains(keyword))) return true;
                 if ((option.FromAll || option.FromCardNo) && split.All(keyword => CardNumber.Contains(keyword))) return true;
                 if ((option.FromAll || option.FromSkills) && split.All(keyword => Skill.Contains(keyword))) return true;
+                if ((option.FromAll || option.FromIllustrator) && split.All(keyword => Illustrator.Contains(keyword))) return true;
 
                 return false;
             }

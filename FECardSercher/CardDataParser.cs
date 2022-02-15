@@ -90,6 +90,36 @@ namespace FECardSercher
             }
         }
 
+        public static string ArmToString(CardData.EArm arm)
+        {
+            switch (arm)
+            {
+                case CardData.EArm.Sword:
+                    return "剣";
+                case CardData.EArm.Lance:
+                    return "槍";
+                case CardData.EArm.Axe:
+                    return "斧";
+                case CardData.EArm.Bow:
+                    return "弓";
+                case CardData.EArm.Dagger:
+                    return "暗器";
+                case CardData.EArm.Magic:
+                    return "魔法";
+                case CardData.EArm.Stuff:
+                    return "杖";
+                case CardData.EArm.Fang:
+                    return "牙";
+                case CardData.EArm.Dragon:
+                    return "竜石";
+                case CardData.EArm.Fist:
+                    return "拳";
+                case CardData.EArm.None:
+                default:
+                    return "";
+            }
+        }
+
         /// <summary>
         /// タイプの解釈
         /// タイプは複数持つことがありうるのでリストで返す
@@ -133,6 +163,27 @@ namespace FECardSercher
             return ret;
         }
 
+        public static string TypeToString(CardData.EType type)
+        {
+            switch (type)
+            {
+                case CardData.EType.Armor:
+                    return "アーマー";
+                case CardData.EType.Wing:
+                    return "飛行";
+                case CardData.EType.Hourse:
+                    return "獣馬";
+                case CardData.EType.Dragon:
+                    return "竜";
+                case CardData.EType.Mirage:
+                    return "幻影";
+                case CardData.EType.Monster:
+                    return "魔物";
+                default:
+                    return "";
+            }
+        }
+
         /// <summary>
         /// 性別の解釈
         /// </summary>
@@ -149,6 +200,20 @@ namespace FECardSercher
                 case "（なし）":
                 default:
                     return CardData.ESex.None;
+            }
+        }
+
+        public static string SexToString(CardData.ESex sex)
+        {
+            switch (sex)
+            {
+                case CardData.ESex.Male:
+                    return "男";
+                case CardData.ESex.Female:
+                    return "女";
+                case CardData.ESex.None:
+                default:
+                    return "（なし）";
             }
         }
 
